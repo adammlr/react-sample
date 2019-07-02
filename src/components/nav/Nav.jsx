@@ -1,16 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Nav() {
   return (
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <Link class="navbar-item" to="/">
           <img
             src="https://bulma.io/images/bulma-logo.png"
             width="112"
             height="28"
+            alt="logo"
           />
-        </a>
+        </Link>
 
         <a
           role="button"
@@ -27,30 +29,24 @@ function Nav() {
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">Home</a>
+          <Link class="navbar-item" to="/">
+            Home
+          </Link>
 
-          <a class="navbar-item">Documentation</a>
-
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">More</a>
-
-            <div class="navbar-dropdown">
-              <a class="navbar-item">About</a>
-              <a class="navbar-item">Jobs</a>
-              <a class="navbar-item">Contact</a>
-              <hr class="navbar-divider" />
-              <a class="navbar-item">Report an issue</a>
-            </div>
-          </div>
+          <Link class="navbar-item" to="/">
+            Documentation
+          </Link>
         </div>
 
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary">
+              <Link class="button is-primary" to="/register">
                 <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">Log in</a>
+              </Link>
+              <Link class="button is-light" to="/login">
+                Log in
+              </Link>
             </div>
           </div>
         </div>
