@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Login from './components/login/Login.jsx';
-import Home from './components/home/Home.jsx';
-import Register from './components/register/Register.jsx';
+import Login from '../login/login.jsx';
+import Home from '../home/home.jsx';
+import Register from '../register/register.jsx';
 
 const Router = () => (
   <Switch>

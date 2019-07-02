@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import './App.scss';
-import Nav from './components/nav/Nav.jsx';
-import Router from './Router';
+import './app.scss';
+import Nav from '../nav/nav.jsx';
+import Router from './router';
 
 function App() {
   return (
