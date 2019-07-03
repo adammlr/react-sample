@@ -1,11 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Added Items
-* Prettier
-* SASS
-* Bulma
-* Debugging with VSCode
-* ESLint config
+
+- Redux
+- SASS
+- Prettier
+- Bulma
+- Debugging with VSCode
+- ESLint config
 
 ## Available Scripts
 
