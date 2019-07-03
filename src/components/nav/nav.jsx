@@ -21,8 +21,8 @@ function Nav() {
             Home
           </Link>
 
-          <Link className="navbar-item" to="/search">
-            Search
+          <Link className="navbar-item" to="/posts">
+            Posts
           </Link>
         </div>
 
