@@ -33,8 +33,8 @@ function Nav() {
             Home
           </Link>
 
-          <Link class="navbar-item" to="/">
-            Documentation
+          <Link class="navbar-item" to="/search">
+            Search
           </Link>
         </div>
 

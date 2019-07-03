@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Login from '../login/login.jsx';
 import Home from '../home/home.jsx';
 import Register from '../register/register.jsx';
+import Search from '../search/search.jsx';
 
 //https://github.com/airbnb/javascript/tree/master/react#class-vs-reactcreateclass-vs-stateless
 function Router() {
@@ -11,6 +12,7 @@ function Router() {
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
+      <Route path="/search" component={Search} />
     </Switch>
   );
 }
