@@ -5,14 +5,19 @@ function Nav() {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <Link className="navbar-item" to="/">
+        <a
+          className="navbar-item"
+          href="https://bulma.io"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             src="https://bulma.io/images/bulma-logo.png"
             width="112"
             height="28"
             alt="logo"
           />
-        </Link>
+        </a>
       </div>
 
       <div id="navbarBasicExample" className="navbar-menu">
