@@ -8,7 +8,11 @@ function App() {
   return (
     <BrowserRouter>
       <Nav></Nav>
-      <Router></Router>
+      <section className="section">
+        <div className="container">
+          <Router></Router>
+        </div>
+      </section>
     </BrowserRouter>
   );
 }

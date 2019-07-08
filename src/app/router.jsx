@@ -4,6 +4,7 @@ import Login from '../components/login/login.jsx';
 import Home from '../components/home/home.jsx';
 import Register from '../components/register/register.jsx';
 import Posts from '../components/posts/posts.jsx';
+import Post from '../components/posts/post.jsx';
 
 //https://github.com/airbnb/javascript/tree/master/react#class-vs-reactcreateclass-vs-stateless
 function Router() {
@@ -13,6 +14,7 @@ function Router() {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/posts" component={Posts} />
+      <Route path="/post/:id" component={Post} />
     </Switch>
   );
 }

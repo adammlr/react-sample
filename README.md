@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Redux
 - Redux-Thunk
+- PropTypes
 - SASS
 - Prettier
 - Bulma
