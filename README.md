@@ -1,4 +1,4 @@
-This project serves as a simple code sample with some common react patterns. View the running app at https://adammlr.github.io/react-sample-dist/
+This project serves as a simple code sample with some common react patterns. View the running app at https://adammlr.github.io/react-sample/
 
 ## Items added to the standard [Create React App](https://github.com/facebook/create-react-app)
 
