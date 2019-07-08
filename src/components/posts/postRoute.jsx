@@ -24,7 +24,7 @@ class PostRoute extends React.Component {
           </div>
         )}
         {this.props.post && !this.props.isLoading && (
-          <PostDetail {...this.props.post} />
+          <PostDetail {...this.props.post} user={this.props.user} />
         )}
       </div>
     );
@@ -35,7 +35,8 @@ const mapStateToProps = state => {
   return {
     isLoading: state.post.isLoading,
     loadError: state.post.loadError,
-    post: state.post.post
+    post: state.post.post,
+    user: state.user.user
   };
 };
 

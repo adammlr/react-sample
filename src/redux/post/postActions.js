@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { fetchUser, userClear } from '../user/userActions';
 
 import {
   POST_LOADING,
@@ -30,12 +31,14 @@ export function postFetchSuccess(items) {
 export function fetchPost(id) {
   return dispatch => {
     dispatch(postLoading(true));
+    dispatch(userClear());
 
     //simulate a response delay
     setTimeout(() => {
       axios
         .get('https://jsonplaceholder.typicode.com/posts/' + id, {})
         .then(response => {
+          dispatch(fetchUser(response.data.userId));
           dispatch(postLoading(false));
           dispatch(postFetchSuccess(response.data));
         })
