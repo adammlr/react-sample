@@ -5,7 +5,7 @@ import PostDetail from './postDetail';
 import Loading from '../shared/loading';
 import { Link } from 'react-router-dom';
 
-class Post extends React.Component {
+class PostRoute extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.loadPost(id);
@@ -50,4 +50,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Post);
+)(PostRoute);

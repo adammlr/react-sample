@@ -4,7 +4,7 @@ import { fetchPosts } from '../../redux/posts/postsActions';
 import Post from './postListItem';
 import Loading from '../shared/loading';
 
-class Posts extends React.Component {
+class PostsRoute extends React.Component {
   componentDidMount() {
     if (this.props.posts === null) {
       this.props.loadPosts();
@@ -41,4 +41,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Posts);
+)(PostsRoute);

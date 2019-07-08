@@ -34,12 +34,10 @@ function Nav() {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <Link className="button is-primary" to="/register">
+              <Link className="button is-primary">
                 <strong>Sign up</strong>
               </Link>
-              <Link className="button is-light" to="/login">
-                Log in
-              </Link>
+              <Link className="button is-light">Log in</Link>
             </div>
           </div>
         </div>

@@ -1,20 +1,16 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Login from '../components/login/login.jsx';
-import Home from '../components/home/home.jsx';
-import Register from '../components/register/register.jsx';
-import Posts from '../components/posts/posts.jsx';
-import Post from '../components/posts/post.jsx';
+import HomeRoute from '../components/home/homeRoute.jsx';
+import PostsRoute from '../components/posts/postsRoute.jsx';
+import PostRoute from '../components/posts/postRoute.jsx';
 
 //https://github.com/airbnb/javascript/tree/master/react#class-vs-reactcreateclass-vs-stateless
 function Router() {
   return (
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="/posts" component={Posts} />
-      <Route path="/post/:id" component={Post} />
+      <Route exact path="/" component={HomeRoute} />
+      <Route path="/posts" component={PostsRoute} />
+      <Route path="/post/:id" component={PostRoute} />
     </Switch>
   );
 }
