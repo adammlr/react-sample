@@ -49,5 +49,6 @@
       "prettier --single-quote --write",
       "git add"
     ]
-  }
+  },
+  "homepage": "https://adammlr.github.io/react-sample-dist"
 }
