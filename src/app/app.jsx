@@ -6,7 +6,7 @@ import Router from './router';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Nav></Nav>
       <section className="section">
         <div className="container">
