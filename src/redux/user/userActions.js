@@ -35,21 +35,19 @@ export function userFetchSuccess(items) {
 }
 
 export function fetchUser(id) {
-  return dispatch => {
+  return async dispatch => {
     dispatch(userLoading(true));
+    try {
+      const response = await axios.get(
+        'https://jsonplaceholder.typicode.com/users/' + id,
+        {}
+      );
 
-    //simulate a response delay
-    setTimeout(() => {
-      axios
-        .get('https://jsonplaceholder.typicode.com/users/' + id, {})
-        .then(response => {
-          dispatch(userLoading(false));
-          dispatch(userFetchSuccess(response.data));
-        })
-        .catch(err => {
-          dispatch(userLoading(false));
-          dispatch(userFetchFailure(err.message));
-        });
-    }, 1000);
+      dispatch(userLoading(false));
+      dispatch(userFetchSuccess(response.data));
+    } catch (err) {
+      dispatch(userLoading(false));
+      dispatch(userFetchFailure(err.message));
+    }
   };
 }

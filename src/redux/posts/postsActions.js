@@ -28,18 +28,19 @@ export function postsFetchSuccess(items) {
 }
 
 export function fetchPosts() {
-  return dispatch => {
+  return async dispatch => {
     dispatch(postsLoading(true));
+    try {
+      const response = await axios.get(
+        'https://jsonplaceholder.typicode.com/posts',
+        {}
+      );
 
-    axios
-      .get('https://jsonplaceholder.typicode.com/posts', {})
-      .then(response => {
-        dispatch(postsLoading(false));
-        dispatch(postsFetchSuccess(response.data));
-      })
-      .catch(err => {
-        dispatch(postsLoading(false));
-        dispatch(postsFetchFailure(err.message));
-      });
+      dispatch(postsLoading(false));
+      dispatch(postsFetchSuccess(response.data));
+    } catch (err) {
+      dispatch(postsLoading(false));
+      dispatch(postsFetchFailure(err.message));
+    }
   };
 }

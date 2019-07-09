@@ -29,23 +29,22 @@ export function postFetchSuccess(items) {
 }
 
 export function fetchPost(id) {
-  return dispatch => {
+  return async dispatch => {
     dispatch(postLoading(true));
     dispatch(userClear());
 
-    //simulate a response delay
-    setTimeout(() => {
-      axios
-        .get('https://jsonplaceholder.typicode.com/posts/' + id, {})
-        .then(response => {
-          dispatch(fetchUser(response.data.userId));
-          dispatch(postLoading(false));
-          dispatch(postFetchSuccess(response.data));
-        })
-        .catch(err => {
-          dispatch(postLoading(false));
-          dispatch(postFetchFailure(err.message));
-        });
-    }, 1000);
+    try {
+      const response = await axios.get(
+        'https://jsonplaceholder.typicode.com/posts/' + id,
+        {}
+      );
+
+      dispatch(fetchUser(response.data.userId));
+      dispatch(postLoading(false));
+      dispatch(postFetchSuccess(response.data));
+    } catch (err) {
+      dispatch(postLoading(false));
+      dispatch(postFetchFailure(err.message));
+    }
   };
 }
