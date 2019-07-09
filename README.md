@@ -10,6 +10,7 @@ This project serves as a simple code sample with some common react patterns. Vie
 - [Bulma](https://bulma.io)
 - Debugging with VSCode
 - ESLint config
+- [Absolute paths for import statements](https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7e3d) with VSCode support
 
 ## Available Scripts
 

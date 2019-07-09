@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPost } from '../../redux/post/postActions';
+import { fetchPost } from 'redux/post/postActions';
 import PostDetail from './postDetail';
 import Loading from '../shared/loading';
 import { Link } from 'react-router-dom';
