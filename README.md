@@ -12,6 +12,13 @@ This project serves as a simple code sample with some common react patterns. Vie
 - ESLint config
 - [Absolute paths for import statements](https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7e3d) with VSCode support
 
+## Recommended VSCode extensions
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Formatting Toggle](https://marketplace.visualstudio.com/items?itemName=tombonnike.vscode-status-bar-format-toggle)
+- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+
 ## Available Scripts
 
 In the project directory, you can run:
