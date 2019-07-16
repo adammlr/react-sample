@@ -1,26 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from 'redux/posts/postsActions';
 import Post from './postListItem';
 import Loading from '../shared/loading';
 
-class PostsRoute extends React.Component {
-  componentDidMount() {
-    if (this.props.posts === null) {
-      this.props.loadPosts();
+function PostsRoute({ posts, isLoading, loadPosts }) {
+  useEffect(() => {
+    if (posts === null) {
+      loadPosts();
     }
-  }
+  }, [posts, loadPosts]);
 
-  render() {
-    return (
-      <div>
-        <h1 className="title">Posts</h1>
-        {this.props.isLoading && <Loading></Loading>}
-        {this.props.posts &&
-          this.props.posts.map(post => <Post key={post.id} {...post} />)}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h1 className="title">Posts</h1>
+      {isLoading && <Loading></Loading>}
+      {posts && posts.map(post => <Post key={post.id} {...post} />)}
+    </div>
+  );
 }
 
 const mapStateToProps = state => {

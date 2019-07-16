@@ -2,16 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UserSummary from '../user/userSummary';
 
-class PostDetail extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1 className="title">{this.props.title}</h1>
-        <UserSummary className="sub-title" {...this.props.user}></UserSummary>
-        <p>{this.props.body}</p>
-      </div>
-    );
-  }
+function PostDetail({ title, user, body }) {
+  return (
+    <div>
+      <h1 className="title">{title}</h1>
+      <UserSummary className="sub-title" {...user}></UserSummary>
+      <p>{body}</p>
+    </div>
+  );
 }
 
 PostDetail.propTypes = {
