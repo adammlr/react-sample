@@ -2,7 +2,7 @@ This project serves as a simple code sample with some common react patterns. Vie
 
 ## Items added to the standard [Create React App](https://github.com/facebook/create-react-app)
 
-- Redux
+- Redux (with logger)
 - Redux-Thunk
 - PropTypes
 - SASS
