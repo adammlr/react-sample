@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import { fetchPosts } from 'redux/posts/postsActions';
+import { selectIsLoading, selectPosts } from 'redux/posts/postsSelectors';
 import Post from './postListItem';
 import Loading from '../shared/loading';
 
@@ -20,12 +22,10 @@ function PostsRoute({ posts, isLoading, loadPosts }) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    isLoading: state.posts.isLoading,
-    posts: state.posts.posts
-  };
-};
+const mapStateToProps = createStructuredSelector({
+  isLoading: selectIsLoading,
+  posts: selectPosts
+});
 
 const mapDispatchToProps = dispatch => {
   return {

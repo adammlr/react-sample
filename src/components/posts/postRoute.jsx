@@ -1,6 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import { fetchPost } from 'redux/post/postActions';
+import {
+  selectPost,
+  selectIsLoading,
+  selectLoadError
+} from 'redux/post/postSelectors';
+import { selectUser } from 'redux/user/userSelectors';
 import PostDetail from './postDetail';
 import Loading from '../shared/loading';
 import { Link } from 'react-router-dom';
@@ -27,14 +34,12 @@ function PostRoute({ loadPost, match, isLoading, loadError, post, user }) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    isLoading: state.post.isLoading,
-    loadError: state.post.loadError,
-    post: state.post.post,
-    user: state.user.user
-  };
-};
+const mapStateToProps = createStructuredSelector({
+  isLoading: selectIsLoading,
+  loadError: selectLoadError,
+  post: selectPost,
+  user: selectUser
+});
 
 const mapDispatchToProps = dispatch => {
   return {
