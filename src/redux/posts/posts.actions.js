@@ -4,7 +4,7 @@ import {
   POSTS_LOADING,
   POSTS_FETCH_SUCCESS,
   POSTS_FETCH_FAILURE
-} from '../actionTypes';
+} from '../action.types';
 
 export function postsFetchFailure(message) {
   return {

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { fetchPosts } from 'redux/posts/postsActions';
-import { selectIsLoading, selectPosts } from 'redux/posts/postsSelectors';
-import Post from './postListItem';
+import { fetchPosts } from 'redux/posts/posts.actions';
+import { selectIsLoading, selectPosts } from 'redux/posts/posts.selectors';
+import Post from './post.list.item';
 import Loading from '../shared/loading';
 
 function PostsRoute({ posts, isLoading, loadPosts }) {

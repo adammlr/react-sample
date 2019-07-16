@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { fetchUser, userClear } from '../user/userActions';
+import { fetchUser, userClear } from '../user/user.actions';
 
 import {
   POST_LOADING,
   POST_FETCH_SUCCESS,
   POST_FETCH_FAILURE
-} from '../actionTypes';
+} from '../action.types';
 
 export function postFetchFailure(message) {
   return {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import UserSummary from '../user/userSummary';
+import UserSummary from '../user/user.summary';
 
 function PostDetail({ title, user, body }) {
   return (

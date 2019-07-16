@@ -5,7 +5,7 @@ import {
   USER_LOADING,
   USER_FETCH_SUCCESS,
   USER_FETCH_FAILURE
-} from '../actionTypes';
+} from '../action.types';
 
 export function userClear() {
   return {

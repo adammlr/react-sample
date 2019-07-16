@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { fetchPost } from 'redux/post/postActions';
+import { fetchPost } from 'redux/post/post.actions';
 import {
   selectPost,
   selectIsLoading,
   selectLoadError
-} from 'redux/post/postSelectors';
-import { selectUser } from 'redux/user/userSelectors';
-import PostDetail from './postDetail';
+} from 'redux/post/post.selectors';
+import { selectUser } from 'redux/user/user.selectors';
+import PostDetail from './post.detail';
 import Loading from '../shared/loading';
 import { Link } from 'react-router-dom';
 
