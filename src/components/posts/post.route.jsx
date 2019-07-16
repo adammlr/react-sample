@@ -12,11 +12,11 @@ import PostDetail from './post.detail';
 import Loading from '../shared/loading';
 import { Link } from 'react-router-dom';
 
-function PostRoute({ loadPost, match, isLoading, loadError, post, user }) {
+function PostRoute({ fetchPost, match, isLoading, loadError, post, user }) {
   useEffect(() => {
     const id = match.params.id;
-    loadPost(id);
-  }, [loadPost, match.params.id]); // Only re-run the effect if count changes
+    fetchPost(id);
+  }, [fetchPost, match.params.id]); // Only re-run the effect if count changes
 
   return (
     <div>
@@ -41,12 +41,8 @@ const mapStateToProps = createStructuredSelector({
   user: selectUser
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    loadPost: id => {
-      dispatch(fetchPost(id));
-    }
-  };
+const mapDispatchToProps = {
+  fetchPost
 };
 
 export default connect(

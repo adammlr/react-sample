@@ -6,12 +6,12 @@ import { selectIsLoading, selectPosts } from 'redux/posts/posts.selectors';
 import Post from './post.list.item';
 import Loading from '../shared/loading';
 
-function PostsRoute({ posts, isLoading, loadPosts }) {
+function PostsRoute({ posts, isLoading, fetchPosts }) {
   useEffect(() => {
     if (posts === null) {
-      loadPosts();
+      fetchPosts();
     }
-  }, [posts, loadPosts]);
+  }, [posts, fetchPosts]);
 
   return (
     <div>
@@ -27,12 +27,8 @@ const mapStateToProps = createStructuredSelector({
   posts: selectPosts
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    loadPosts: () => {
-      dispatch(fetchPosts());
-    }
-  };
+const mapDispatchToProps = {
+  fetchPosts
 };
 
 export default connect(
