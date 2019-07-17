@@ -1,34 +1,41 @@
 import {
-  POST_LOADING,
-  POST_FETCH_SUCCESS,
-  POST_FETCH_FAILURE
-} from '../action.types';
+  USER_CLEAR,
+  USER_LOADING,
+  USER_FETCH_SUCCESS,
+  USER_FETCH_FAILURE
+} from './user.action.types';
 
 const initialState = {
   isLoading: false,
-  post: null,
+  currentUser: null,
   loadError: null
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case POST_LOADING: {
+    case USER_LOADING: {
       return {
         ...state,
         isLoading: action.payload,
         loadError: null
       };
     }
-    case POST_FETCH_SUCCESS: {
+    case USER_CLEAR: {
       return {
         ...state,
-        post: action.payload
+        user: null
       };
     }
-    case POST_FETCH_FAILURE: {
+    case USER_FETCH_SUCCESS: {
       return {
         ...state,
-        post: null,
+        user: action.payload
+      };
+    }
+    case USER_FETCH_FAILURE: {
+      return {
+        ...state,
+        user: null,
         loadError: action.payload
       };
     }

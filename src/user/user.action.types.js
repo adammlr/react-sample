@@ -1,0 +1,4 @@
+export const USER_CLEAR = 'USER_CLEAR';
+export const USER_LOADING = 'USER_LOADING';
+export const USER_FETCH_SUCCESS = 'USER_FETCH_SUCCESS';
+export const USER_FETCH_FAILURE = 'USER_FETCH_FAILURE';

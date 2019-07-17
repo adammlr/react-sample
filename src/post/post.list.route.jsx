@@ -1,30 +1,30 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { fetchPosts } from 'redux/posts/posts.actions';
-import { selectIsLoading, selectPosts } from 'redux/posts/posts.selectors';
+import { fetchPosts } from './post.actions';
+import { postList, postListIsLoading } from './post.selectors';
 import Post from './post.list.item';
-import Loading from '../shared/loading';
+import Loading from '../components/loading';
 
-function PostsRoute({ posts, isLoading, fetchPosts }) {
+function PostListRoute({ postList, postListIsLoading, fetchPosts }) {
   useEffect(() => {
-    if (posts === null) {
+    if (postList === null) {
       fetchPosts();
     }
-  }, [posts, fetchPosts]);
+  }, [postList, fetchPosts]);
 
   return (
     <div>
       <h1 className="title">Posts</h1>
-      {isLoading && <Loading></Loading>}
-      {posts && posts.map(post => <Post key={post.id} {...post} />)}
+      {postListIsLoading && <Loading></Loading>}
+      {postList && postList.map(post => <Post key={post.id} {...post} />)}
     </div>
   );
 }
 
 const mapStateToProps = createStructuredSelector({
-  isLoading: selectIsLoading,
-  posts: selectPosts
+  postList,
+  postListIsLoading
 });
 
 const mapDispatchToProps = {
@@ -34,4 +34,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PostsRoute);
+)(PostListRoute);

@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 const base = state => state.user;
 
-export const selectUser = createSelector(
+export const currentUser = createSelector(
   [base],
   user => user.user
 );

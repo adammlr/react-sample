@@ -1,7 +1,7 @@
 import React from 'react';
 
-function HomeRoute() {
+function UserListRoute() {
   return <h1 className="title">Home</h1>;
 }
 
-export default HomeRoute;
+export default UserListRoute;

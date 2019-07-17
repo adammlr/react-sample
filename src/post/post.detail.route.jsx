@@ -1,27 +1,34 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { fetchPost } from 'redux/post/post.actions';
+import { fetchPost } from './post.actions';
 import {
-  selectPost,
-  selectIsLoading,
-  selectLoadError
-} from 'redux/post/post.selectors';
-import { selectUser } from 'redux/user/user.selectors';
+  currentPost,
+  currentPostIsLoading,
+  currentPostLoadError
+} from './post.selectors';
+import { currentUser } from '../user/user.selectors';
 import PostDetail from './post.detail';
-import Loading from '../shared/loading';
+import Loading from '../components/loading';
 import { Link } from 'react-router-dom';
 
-function PostRoute({ fetchPost, match, isLoading, loadError, post, user }) {
+function PostDetailRoute({
+  fetchPost,
+  match,
+  currentPost,
+  currentPostLoadError,
+  currentPostIsLoading,
+  currentUser
+}) {
   useEffect(() => {
     const id = match.params.id;
     fetchPost(id);
-  }, [fetchPost, match.params.id]); // Only re-run the effect if count changes
+  }, [fetchPost, match.params.id]);
 
   return (
     <div>
-      {isLoading && <Loading></Loading>}
-      {loadError && (
+      {currentPostIsLoading && <Loading></Loading>}
+      {currentPostLoadError && (
         <div>
           <h4 className="has-text-danger">Unable to find requested item</h4>
           <span>
@@ -29,16 +36,18 @@ function PostRoute({ fetchPost, match, isLoading, loadError, post, user }) {
           </span>
         </div>
       )}
-      {post && !isLoading && <PostDetail {...post} user={user} />}
+      {currentPost && !currentPostIsLoading && (
+        <PostDetail {...currentPost} user={currentUser} />
+      )}
     </div>
   );
 }
 
 const mapStateToProps = createStructuredSelector({
-  isLoading: selectIsLoading,
-  loadError: selectLoadError,
-  post: selectPost,
-  user: selectUser
+  currentPost,
+  currentPostIsLoading,
+  currentPostLoadError,
+  currentUser
 });
 
 const mapDispatchToProps = {
@@ -48,4 +57,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PostRoute);
+)(PostDetailRoute);
