@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { fetchUser, userClear } from '../user/user.actions';
+import { fetchUser, clearCurrentUser } from '../user/user.reducer';
 
 import {
   POST_LOADING,
@@ -73,7 +73,7 @@ export function fetchPosts() {
 export function fetchPost(id) {
   return async dispatch => {
     dispatch(postLoading(true));
-    dispatch(userClear());
+    dispatch(clearCurrentUser());
 
     try {
       const response = await axios.get(

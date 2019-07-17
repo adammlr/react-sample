@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { fetchUsers } from './user.actions';
+import { fetchUsers } from './user.reducer';
 import { userList, userListIsLoading } from './user.selectors';
 import UserListItem from './user.list.item';
 import Loading from '../components/loading';

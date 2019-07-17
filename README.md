@@ -4,7 +4,7 @@ This project serves as a simple code sample with some common react patterns. Vie
 
 - Redux (with logger)
 - Redux-Thunk
-- [Reselect](https://github.com/reduxjs/reselect)
+- [redux-starter-kit](https://redux-starter-kit.js.org) to remove redux boilerplate
 - SASS
 - [Prettier](https://prettier.io/)
 - [Bulma](https://bulma.io)

@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector } from 'redux-starter-kit';
 
 const base = state => state.user;
 
