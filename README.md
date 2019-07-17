@@ -5,7 +5,6 @@ This project serves as a simple code sample with some common react patterns. Vie
 - Redux (with logger)
 - Redux-Thunk
 - [Reslect](https://github.com/reduxjs/reselect)
-- PropTypes
 - SASS
 - [Prettier](https://prettier.io/)
 - [Bulma](https://bulma.io)

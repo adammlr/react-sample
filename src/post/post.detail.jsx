@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import UserSummary from '../user/user.summary';
 
 function PostDetail({ title, user, body }) {
@@ -11,11 +10,5 @@ function PostDetail({ title, user, body }) {
     </div>
   );
 }
-
-PostDetail.propTypes = {
-  user: PropTypes.object,
-  title: PropTypes.string,
-  body: PropTypes.string
-};
 
 export default PostDetail;

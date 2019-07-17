@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function PostListItem({ id, title }) {
@@ -9,10 +8,5 @@ function PostListItem({ id, title }) {
     </div>
   );
 }
-
-PostListItem.propTypes = {
-  id: PropTypes.number,
-  title: PropTypes.string
-};
 
 export default PostListItem;
