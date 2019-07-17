@@ -5,6 +5,7 @@ import { fetchUsers } from './user.actions';
 import { userList, userListIsLoading } from './user.selectors';
 import UserListItem from './user.list.item';
 import Loading from '../components/loading';
+import Title from '../components/title';
 
 function UserListRoute({ userList, userListIsLoading, fetchUsers }) {
   useEffect(() => {
@@ -15,7 +16,7 @@ function UserListRoute({ userList, userListIsLoading, fetchUsers }) {
 
   return (
     <div>
-      <h1 className="title">Users</h1>
+      <Title title="Users"></Title>
       {userListIsLoading && <Loading></Loading>}
       {userList &&
         userList.map(user => <UserListItem key={user.id} {...user} />)}
