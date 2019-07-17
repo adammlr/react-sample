@@ -4,5 +4,15 @@ const base = state => state.user;
 
 export const currentUser = createSelector(
   [base],
-  user => user.user
+  user => user.currentUser
+);
+
+export const userList = createSelector(
+  [base],
+  user => user.userList
+);
+
+export const userListIsLoading = createSelector(
+  [base],
+  user => user.userListIsLoading
 );

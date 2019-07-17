@@ -2,13 +2,19 @@ import {
   USER_CLEAR,
   USER_LOADING,
   USER_FETCH_SUCCESS,
-  USER_FETCH_FAILURE
+  USER_FETCH_FAILURE,
+  USERS_LOADING,
+  USERS_FETCH_SUCCESS,
+  USERS_FETCH_FAILURE
 } from './user.action.types';
 
 const initialState = {
-  isLoading: false,
   currentUser: null,
-  loadError: null
+  currentUserisLoading: false,
+  currentUserLoadError: null,
+  userList: null,
+  userListIsLoading: null,
+  userListLoadError: null
 };
 
 export default function(state = initialState, action) {
@@ -16,27 +22,47 @@ export default function(state = initialState, action) {
     case USER_LOADING: {
       return {
         ...state,
-        isLoading: action.payload,
-        loadError: null
+        currentUserisLoading: action.payload,
+        currentUserLoadError: null
       };
     }
     case USER_CLEAR: {
       return {
         ...state,
-        user: null
+        currentUser: null
       };
     }
     case USER_FETCH_SUCCESS: {
       return {
         ...state,
-        user: action.payload
+        currentUser: action.payload
       };
     }
     case USER_FETCH_FAILURE: {
       return {
         ...state,
-        user: null,
-        loadError: action.payload
+        currentUser: null,
+        currentUserLoadError: action.payload
+      };
+    }
+    case USERS_LOADING: {
+      return {
+        ...state,
+        userListIsLoading: action.payload,
+        userListLoadError: null
+      };
+    }
+    case USERS_FETCH_SUCCESS: {
+      return {
+        ...state,
+        userList: action.payload
+      };
+    }
+    case USERS_FETCH_FAILURE: {
+      return {
+        ...state,
+        userList: null,
+        userListLoadError: action.payload
       };
     }
     default:
