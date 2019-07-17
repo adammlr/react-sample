@@ -39,7 +39,9 @@ const userListLoading = createSlice({
 
 const reducer = combineReducers({
   currentUser: currentUser.reducer,
-  userList: userList.reducer
+  currentUserIsLoading: currentUserIsLoading.reducer,
+  userList: userList.reducer,
+  userListLoading: userListLoading.reducer
 });
 
 export function fetchUser(id) {
