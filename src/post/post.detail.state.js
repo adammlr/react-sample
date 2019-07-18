@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createSlice, createSelector } from 'redux-starter-kit';
-import { fetchUser } from 'user/user.detail.duck';
+import { fetchUser } from 'user/user.detail.state';
 
 /// Reducers
 const slice = createSlice({

@@ -6,8 +6,8 @@ import {
   currentPostIsLoading,
   currentPostLoadError,
   fetchPost
-} from './post.detail.duck';
-import { currentUserData } from '../user/user.detail.duck';
+} from './post.detail.state';
+import { currentUserData } from '../user/user.detail.state';
 import PostDetail from './post.detail';
 import Loading from '../components/loading';
 import { Link } from 'react-router-dom';

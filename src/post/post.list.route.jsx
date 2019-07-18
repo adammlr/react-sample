@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { fetchPosts, postListData, postListIsLoading } from './post.list.duck';
+import { fetchPosts, postListData, postListIsLoading } from './post.list.state';
 import PostListItem from './post.list.item';
 import Loading from '../components/loading';
 import Title from '../components/title';
