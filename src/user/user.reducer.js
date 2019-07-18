@@ -2,22 +2,29 @@ import axios from 'axios';
 import { createSlice } from 'redux-starter-kit';
 import { combineReducers } from 'redux';
 
+/// Reducer Slices
 const currentUser = createSlice({
-  slice: 'currentUser',
+  slice: 'currentUser', //namespace our action type ('currentUser/setCurrentUser')
   initialState: null,
   reducers: {
-    setCurrentUser: (state, action) => action.payload,
+    setCurrentUser: (state, action) => action.payload, //this will assign the payload to state, we aren't mutating state as its using immer behind the scenes
     clearCurrentUser: () => null
   }
 });
 
-export const clearCurrentUser = currentUser.actions.clearCurrentUser;
-
 const currentUserIsLoading = createSlice({
-  slice: 'currentUserIsLoading',
+  slice: 'currentUser',
   initialState: false,
   reducers: {
     setIsLoading: (state, action) => action.payload
+  }
+});
+
+const currentUserLoadError = createSlice({
+  slice: 'currentUser',
+  initialState: null,
+  reducers: {
+    setLoadError: (state, action) => action.payload
   }
 });
 
@@ -30,20 +37,37 @@ const userList = createSlice({
 });
 
 const userListLoading = createSlice({
-  slice: 'userListLoading',
+  slice: 'userList',
   initialState: false,
   reducers: {
     setIsLoading: (state, action) => action.payload
   }
 });
 
-const reducer = combineReducers({
-  currentUser: currentUser.reducer,
-  currentUserIsLoading: currentUserIsLoading.reducer,
-  userList: userList.reducer,
-  userListLoading: userListLoading.reducer
+const userListLoadError = createSlice({
+  slice: 'userList',
+  initialState: null,
+  reducers: {
+    setLoadError: (state, action) => action.payload
+  }
 });
 
+/// Combined Reducer
+export default combineReducers({
+  currentUser: currentUser.reducer,
+  currentUserIsLoading: currentUserIsLoading.reducer,
+  currentUserLoadError: currentUserLoadError.reducer,
+  userList: userList.reducer,
+  userListLoading: userListLoading.reducer,
+  userListLoadError: userListLoadError.reducer
+});
+
+// export actions needed by other consumers (generated automatically by createSlice)
+export const { clearCurrentUser } = currentUser.actions;
+// use destructuring so that we get a build time error for typos
+// opposed to a run time error via property access (currentUser.actions.clearCurrentUser)
+
+/// Async Actions
 export function fetchUser(id) {
   return async dispatch => {
     dispatch(currentUserIsLoading.actions.setIsLoading(true));
@@ -57,12 +81,12 @@ export function fetchUser(id) {
       dispatch(currentUser.actions.setCurrentUser(response.data));
     } catch (err) {
       dispatch(currentUserIsLoading.actions.setIsLoading(false));
-      //dispatch(userFetchFailure(err.message));
+      dispatch(currentUserLoadError.actions.setLoadError(err.message));
     }
   };
 }
 
-export function fetchUsers(id) {
+export function fetchUsers() {
   return async dispatch => {
     dispatch(userListLoading.actions.setIsLoading(true));
     try {
@@ -75,9 +99,7 @@ export function fetchUsers(id) {
       dispatch(userList.actions.setUserList(response.data));
     } catch (err) {
       dispatch(userListLoading.actions.setIsLoading(false));
-      //dispatch(usersFetchFailure(err.message));
+      dispatch(userListLoadError.actions.setLoadError(err.message));
     }
   };
 }
-
-export default reducer;
