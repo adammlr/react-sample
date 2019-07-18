@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { createSlice, createSelector } from 'redux-starter-kit';
+import fetchData from '../redux/api.dispatch';
 
 // reducer
 const slice = createSlice({
@@ -35,21 +35,12 @@ const {
 } = slice.actions;
 
 export function fetchPosts() {
-  return async dispatch => {
-    dispatch(setPostListIsLoading(true));
-    try {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/posts',
-        {}
-      );
-
-      dispatch(setPostList(response.data));
-    } catch (err) {
-      dispatch(setPostListLoadError(err.message));
-    }
-
-    dispatch(setPostListIsLoading(false));
-  };
+  return fetchData({
+    route: 'posts',
+    isLoading: setPostListIsLoading,
+    dataLoaded: setPostList,
+    loadError: setPostListLoadError
+  });
 }
 
 // selectors

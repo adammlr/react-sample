@@ -1,6 +1,6 @@
-import axios from 'axios';
 import { createSlice, createSelector } from 'redux-starter-kit';
 import { fetchUser } from 'user/user.detail.state';
+import fetchData from '../redux/api.dispatch';
 
 /// Reducers
 const slice = createSlice({
@@ -37,24 +37,17 @@ const {
 } = slice.actions;
 
 export function fetchPost(id) {
-  return async dispatch => {
-    dispatch(clearCurrentPost());
-    dispatch(setCurrentPostLoadError(null));
-    dispatch(setCurrentPostIsLoading(true));
+  const afterSuccess = response => fetchUser(response.data.userId);
+  const beforeFetch = () => clearCurrentPost();
 
-    try {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/posts/' + id,
-        {}
-      );
-      dispatch(setCurrentPost(response.data));
-      dispatch(fetchUser(response.data.userId));
-    } catch (err) {
-      dispatch(setCurrentPostLoadError(err.message));
-    }
-
-    dispatch(setCurrentPostIsLoading(false));
-  };
+  return fetchData({
+    route: `posts/${id}`,
+    isLoading: setCurrentPostIsLoading,
+    dataLoaded: setCurrentPost,
+    loadError: setCurrentPostLoadError,
+    beforeFetch,
+    afterSuccess
+  });
 }
 /// selectors
 const { getPostDetail } = slice.selectors;

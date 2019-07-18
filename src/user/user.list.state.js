@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { createSlice, createSelector } from 'redux-starter-kit';
+import fetchData from '../redux/api.dispatch';
 
 // reducer
 const slice = createSlice({
@@ -35,21 +35,12 @@ const {
 } = slice.actions;
 
 export function fetchUsers() {
-  return async dispatch => {
-    dispatch(setUserListIsLoading(true));
-    try {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/users',
-        {}
-      );
-
-      dispatch(setUserList(response.data));
-    } catch (err) {
-      dispatch(setUserListLoadError(err.message));
-    }
-
-    dispatch(setUserListIsLoading(false));
-  };
+  return fetchData({
+    route: 'users',
+    isLoading: setUserListIsLoading,
+    dataLoaded: setUserList,
+    loadError: setUserListLoadError
+  });
 }
 
 // selectors
