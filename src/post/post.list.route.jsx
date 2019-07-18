@@ -1,31 +1,30 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { fetchPosts } from './post.actions';
-import { postList, postListIsLoading } from './post.selectors';
+import { fetchPosts, postListData, postListIsLoading } from './post.list.duck';
 import PostListItem from './post.list.item';
 import Loading from '../components/loading';
 import Title from '../components/title';
 
-function PostListRoute({ postList, postListIsLoading, fetchPosts }) {
+function PostListRoute({ postListData, postListIsLoading, fetchPosts }) {
   useEffect(() => {
-    if (postList === null) {
+    if (!postListData) {
       fetchPosts();
     }
-  }, [postList, fetchPosts]);
+  }, [postListData, fetchPosts]);
 
   return (
     <div>
       <Title title="Posts"></Title>
       {postListIsLoading && <Loading></Loading>}
-      {postList &&
-        postList.map(post => <PostListItem key={post.id} {...post} />)}
+      {postListData &&
+        postListData.map(post => <PostListItem key={post.id} {...post} />)}
     </div>
   );
 }
 
 const mapStateToProps = createStructuredSelector({
-  postList,
+  postListData,
   postListIsLoading
 });
 

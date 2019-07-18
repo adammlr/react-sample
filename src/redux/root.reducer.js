@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import post from '../post/post.reducer';
-import user from '../user/user.reducer';
+import postList from '../post/post.list.duck';
+import postDetail from '../post/post.detail.duck';
+import userList from '../user/user.list.duck';
+import userDetail from '../user/user.detail.duck';
 
 export default combineReducers({
-  post,
-  user
+  postList,
+  postDetail,
+  userList,
+  userDetail
 });

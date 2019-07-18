@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { fetchPost } from './post.actions';
 import {
-  currentPost,
+  currentPostData,
   currentPostIsLoading,
-  currentPostLoadError
-} from './post.selectors';
-import { currentUser } from '../user/user.selectors';
+  currentPostLoadError,
+  fetchPost
+} from './post.detail.duck';
+import { currentUserData } from '../user/user.detail.duck';
 import PostDetail from './post.detail';
 import Loading from '../components/loading';
 import { Link } from 'react-router-dom';
@@ -15,14 +15,16 @@ import { Link } from 'react-router-dom';
 function PostDetailRoute({
   fetchPost,
   match,
-  currentPost,
+  currentPostData,
   currentPostLoadError,
   currentPostIsLoading,
-  currentUser
+  currentUserData
 }) {
   useEffect(() => {
     const id = match.params.id;
-    fetchPost(id);
+    if (id) {
+      fetchPost(id);
+    }
   }, [fetchPost, match.params.id]);
 
   return (
@@ -36,18 +38,18 @@ function PostDetailRoute({
           </span>
         </div>
       )}
-      {currentPost && !currentPostIsLoading && (
-        <PostDetail {...currentPost} user={currentUser} />
+      {currentPostData && !currentPostIsLoading && (
+        <PostDetail {...currentPostData} user={currentUserData} />
       )}
     </div>
   );
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentPost,
+  currentPostData,
   currentPostIsLoading,
   currentPostLoadError,
-  currentUser
+  currentUserData
 });
 
 const mapDispatchToProps = {

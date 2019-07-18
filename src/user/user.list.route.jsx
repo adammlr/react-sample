@@ -1,31 +1,30 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { fetchUsers } from './user.reducer';
-import { userList, userListIsLoading } from './user.selectors';
+import { userListData, userListIsLoading, fetchUsers } from './user.list.duck';
 import UserListItem from './user.list.item';
 import Loading from '../components/loading';
 import Title from '../components/title';
 
-function UserListRoute({ userList, userListIsLoading, fetchUsers }) {
+function UserListRoute({ userListData, userListIsLoading, fetchUsers }) {
   useEffect(() => {
-    if (userList === null) {
+    if (userListData === null) {
       fetchUsers();
     }
-  }, [userList, fetchUsers]);
+  }, [userListData, fetchUsers]);
 
   return (
     <div>
       <Title title="Users"></Title>
       {userListIsLoading && <Loading></Loading>}
-      {userList &&
-        userList.map(user => <UserListItem key={user.id} {...user} />)}
+      {userListData &&
+        userListData.map(user => <UserListItem key={user.id} {...user} />)}
     </div>
   );
 }
 
 const mapStateToProps = createStructuredSelector({
-  userList,
+  userListData,
   userListIsLoading
 });
 
