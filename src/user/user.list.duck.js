@@ -43,12 +43,12 @@ export function fetchUsers() {
         {}
       );
 
-      dispatch(setUserListIsLoading(false));
       dispatch(setUserList(response.data));
     } catch (err) {
-      dispatch(setUserListIsLoading(false));
       dispatch(setUserListLoadError(err.message));
     }
+
+    dispatch(setUserListIsLoading(false));
   };
 }
 

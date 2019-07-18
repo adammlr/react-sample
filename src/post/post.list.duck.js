@@ -43,12 +43,12 @@ export function fetchPosts() {
         {}
       );
 
-      dispatch(setPostListIsLoading(false));
       dispatch(setPostList(response.data));
     } catch (err) {
-      dispatch(setPostListIsLoading(false));
       dispatch(setPostListLoadError(err.message));
     }
+
+    dispatch(setPostListIsLoading(false));
   };
 }
 
