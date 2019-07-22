@@ -6,6 +6,7 @@ This project serves as a simple code sample with some common react patterns. Vie
 - Redux-Thunk
 - [redux-starter-kit](https://redux-starter-kit.js.org) to remove redux boilerplate
 - SASS
+- [i18next](https://react.i18next.com/)
 - [Prettier](https://prettier.io/)
 - [Bulma](https://bulma.io)
 - Debugging with VSCode

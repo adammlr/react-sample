@@ -13,7 +13,7 @@ i18n
       escapeValue: false
     },
     backend: {
-      loadPath: `${process.env.PUBLIC_URL}/locale/{{lng}}.json`
+      loadPath: `${process.env.PUBLIC_URL}/locale/{{lng}}.json` //TODO: cache busting
     }
   });
 
