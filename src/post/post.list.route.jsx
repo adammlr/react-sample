@@ -15,7 +15,7 @@ function PostListRoute({ postListData, postListIsLoading, fetchPosts }) {
 
   return (
     <div>
-      <Title title="Posts"></Title>
+      <Title title="post.title"></Title>
       {postListIsLoading && <Loading></Loading>}
       {postListData &&
         postListData.map(post => <PostListItem key={post.id} {...post} />)}

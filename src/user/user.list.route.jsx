@@ -15,7 +15,7 @@ function UserListRoute({ userListData, userListIsLoading, fetchUsers }) {
 
   return (
     <div>
-      <Title title="Users"></Title>
+      <Title title="user.title"></Title>
       {userListIsLoading && <Loading></Loading>}
       {userListData &&
         userListData.map(user => <UserListItem key={user.id} {...user} />)}

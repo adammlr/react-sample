@@ -5,7 +5,7 @@ import Title from '../components/title';
 function PostDetail({ title, user, body }) {
   return (
     <div>
-      <Title title={title}></Title>
+      <Title raw={title}></Title>
       <UserSummary className="sub-title" {...user}></UserSummary>
       <p>{body}</p>
     </div>
