@@ -12,6 +12,7 @@
     "lint-staged": "^9.0.1",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
+    "preval.macro": "^3.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
@@ -58,5 +59,6 @@
       "git add"
     ]
   },
-  "homepage": "https://adammlr.github.io/react-sample"
+  "homepage": "https://adammlr.github.io/react-sample",
+  "note": "remove /react-sample from the line above to run from the build folder locally"
 }
