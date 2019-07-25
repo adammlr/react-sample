@@ -14,9 +14,6 @@ i18n
     interpolation: {
       escapeValue: false
     },
-    react: {
-      wait: true
-    },
     backend: {
       loadPath: `${process.env.PUBLIC_URL}/locale/{{lng}}.json`,
       queryStringParams: {
