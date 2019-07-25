@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import UserListRoute from '../user/user.list.route.jsx';
-import PostListRoute from '../post/post.list.route.jsx';
-import PostDetailRoute from '../post/post.detail.route.jsx';
+const UserListRoute = lazy(() => import('../user/user.list.route.jsx'));
+const PostListRoute = lazy(() => import('../post/post.list.route.jsx'));
+const PostDetailRoute = lazy(() => import('../post/post.detail.route.jsx'));
 
 function Router() {
   return (
