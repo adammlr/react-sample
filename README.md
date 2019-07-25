@@ -2,6 +2,7 @@ This project serves as a simple code sample with some common react patterns. Vie
 
 ## Items added to the standard [Create React App](https://github.com/facebook/create-react-app)
 
+- Page chunking with lazy loading
 - Redux (with logger)
 - Redux-Thunk
 - [redux-starter-kit](https://redux-starter-kit.js.org) to remove redux boilerplate
