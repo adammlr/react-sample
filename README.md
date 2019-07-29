@@ -13,6 +13,11 @@ This project serves as a simple code sample with some common react patterns. Vie
 - ESLint config
 - [Absolute paths for import statements](https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7e3d) with VSCode support
 
+## Branches
+
+- [i18Next](https://github.com/adammlr/react-sample/tree/i18n)
+- [AngularJS integration](https://github.com/adammlr/react-sample/tree/with-angularjs)
+
 ## Recommended VSCode extensions
 
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
