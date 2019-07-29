@@ -1,12 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { angular2react } from 'angular2react';
+import { lazyInjector } from '../app/angularInjector';
 
-function PostListItem({ id, title }) {
-  return (
+export const angularPostListItem = {
+  bindings: {
+    onLinkClick: '<', //angular does not have access to react context here, cannot interact with react-router-dom
+    title: '<',
+    id: '<'
+  },
+  template: `
     <div>
-      <Link to={`/post/${id}`}>{title}</Link>
+      <a ng-click="this.$ctrl.onLinkClick(this.$ctrl.id)">{{this.$ctrl.title}}</a>
     </div>
-  );
-}
+  `
+};
 
-export default PostListItem;
+const reactPostListITem = angular2react(
+  'angularPostListItem',
+  angularPostListItem,
+  lazyInjector.$injector
+);
+
+export default reactPostListITem;

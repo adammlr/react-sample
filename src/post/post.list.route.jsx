@@ -6,19 +6,30 @@ import PostListItem from './post.list.item';
 import Loading from '../components/loading';
 import Title from '../components/title';
 
-function PostListRoute({ postListData, postListIsLoading, fetchPosts }) {
+function PostListRoute({
+  postListData,
+  postListIsLoading,
+  fetchPosts,
+  history
+}) {
   useEffect(() => {
     if (!postListData) {
       fetchPosts();
     }
   }, [postListData, fetchPosts]);
 
+  function postItemClick(id) {
+    history.push(`/post/${id}`);
+  }
+
   return (
     <div>
       <Title title="Posts"></Title>
       {postListIsLoading && <Loading></Loading>}
       {postListData &&
-        postListData.map(post => <PostListItem key={post.id} {...post} />)}
+        postListData.map(post => (
+          <PostListItem key={post.id} {...post} onLinkClick={postItemClick} />
+        ))}
     </div>
   );
 }
