@@ -2,9 +2,18 @@
   "name": "react-sample",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
   "dependencies": {
     "axios": "^0.19.0",
-    "bulma": "^0.7.5",
     "gh-pages": "^2.0.1",
     "husky": "^3.0.0",
     "lint-staged": "^9.0.1",
@@ -21,18 +30,11 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.1.10",
+    "@storybook/addon-links": "^5.1.10",
+    "@storybook/addons": "^5.1.10",
+    "@storybook/react": "^5.1.10"
   },
   "browserslist": {
     "production": [
@@ -57,11 +59,5 @@
       "git add"
     ]
   },
-  "homepage": "https://adammlr.github.io/react-sample",
-  "devDependencies": {
-    "@storybook/addon-actions": "^5.1.10",
-    "@storybook/addon-links": "^5.1.10",
-    "@storybook/addons": "^5.1.10",
-    "@storybook/react": "^5.1.10"
-  }
+  "homepage": "https://adammlr.github.io/react-sample"
 }
