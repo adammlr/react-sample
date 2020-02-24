@@ -12,7 +12,7 @@ This project serves as a simple code sample with some common react patterns. Vie
 - Debugging with VSCode
 - ESLint config
 - [Absolute paths for import statements](https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7e3d) with VSCode support
-
+this is a test branch
 ## Branches
 
 - [i18Next](https://github.com/adammlr/react-sample/tree/i18n)
